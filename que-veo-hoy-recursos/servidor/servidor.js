@@ -22,4 +22,9 @@ app.listen(puerto, function () {
 });
 
 app.get('/peliculas', controlador.getPeliculas);
-app.get('/generos',controlador.getGeneros);
+app.get('/peliculas/recomendacion', controlador.getRecomendacion); 
+app.get('/peliculas/:id', controlador.getPeliculaId);
+app.get('/generos', controlador.getGeneros);
+
+
+
