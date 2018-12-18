@@ -30,6 +30,31 @@ primary key (id)
 ALTER TABLE pelicula
 ADD CONSTRAINT  FK_generoxpelicula FOREIGN KEY (genero_id) REFERENCES genero (id) ON DELETE RESTRICT ON UPDATE CASCADE;
 
+-- ACTOR
+
+create table if not exists actor(
+ id int auto_increment not null,
+ nombre varchar (70),
+primary key (id)
+);
+
+-- TABLA RELACION PELICULAS ACTOR 
+create table if not exists actor_pelicula(
+ id int auto_increment not null,
+ actor_id int,
+ pelicula_id int,
+primary key (id)
+);
+
+ALTER TABLE actor_pelicula 
+ADD CONSTRAINT  FK_actor_pelicula FOREIGN KEY (pelicula_id) REFERENCES pelicula (id) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE actor_pelicula 
+ADD CONSTRAINT  FK_pelicula_actor FOREIGN KEY (actor_id) REFERENCES actor (id) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+
+
+
+
 
 
 
